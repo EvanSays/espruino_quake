@@ -1,5 +1,7 @@
 ### Rapid Protoyping Javascript and Hardware
 
+Written by: Evan Miller @evansays
+
 #### Introduction
 Shortly after Christmas, the mail arrived with an Espruino inside. My Christmas present to myself all wrapped up in an oversized box and excessive packaging. If you were to ask me why it was difficult for me to wait a week to receive my gift, it's because of JavaScript. 
 
