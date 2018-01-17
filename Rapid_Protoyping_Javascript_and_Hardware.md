@@ -161,8 +161,8 @@ function timer() {
 
 ### All Together Now
 
-![](blink_blue.GIF)
-![](blink_purple.GIF)
+![](https://imgur.com/a/t227D)
+![](blink_purp.gif)
 [Link to full code](https://github.com/EvanSays/espruino_quake/blob/master/quake.js)
 
 Putting all the code pieces together lets me grab data from the api, parse through it for magnitude, and depending on the range, flashes the LEDs a certain color. All in all im quite pleased with the whole process of building from scratch. The custom IDE made it a breeze to get up and running fast, along with the ability to code there and see changes in realtime.
