@@ -3,29 +3,30 @@
 #### Introduction
 Shortly after Christmas, the mail arrived with an Espruino inside. My Christmas present to myself all wrapped up in an oversized box and excessive packaging. If you were to ask me why it was difficult for me to wait a week to receive my gift, it's because of JavaScript. 
 
-You see, in the world of microcontrollers, C#, C++, and even Java dominate. Never have I ever heard someone at the Hackaday Superconference refer to their embedded system project running because of Javascript. In fact, ever mentioning JS there would get you branded via a heated soldering iron. 
+You see, in the world of micro-controllers, C#, C++, and even Java dominate. Never have I ever heard someone at the Hackaday Superconference refer to their embedded system project running because of Javascript. In fact, ever mentioning JS there would get you branded via a heated soldering iron. 
 
 On Instagram, I follow @brendandawes. He lives out in the UK and from his IG, is an "artist working with digital and analogue materials." He periodically posts what he uses for his projects, including the one that got me all antsy waiting for the mail arrive. JS + embedded systems? Yes, please!
 
-![@brendandawes](/media/brendan_dawes_ig.png | width=48)
+<img src="https://github.com/EvanSays/espruino_quake/blob/master/media/brendan_dawes_ig.png" width="600">
 
-I'm all for rapid prototyping. The moment I have an idea, I want to create. The less the upfront cost of time, the closer to an idea coming to frutation. The Espruino brands itself as being easy to setup, program, and debug. Cue, easy button commercial. Let's see how this goes.
+I'm all for rapid prototyping. The moment I have an idea, I want to create. The less the upfront cost of time, the closer to an idea coming to fruition. The Espruino brands itself as being easy to setup, program, and debug. Cue, easy button commercial. Let's see how this goes.
 
 ### The Idea.
 
-My idea this time is to create a device that lights up when an earthquake is sensed around the world. I would fetch the USGS API using the built-in wifi module and parse through the quakes. If one is large enough, LEDs would blink and change color according to magnitude.
+My idea this time is to create a device that lights up when an earthquake is sensed around the world. I would fetch the USGS API using the built-in WiFi module and parse through the quakes. If one is large enough, LEDs would blink and change color according to magnitude.
 
-In order to make this work, I will need an Espruino, leds, a bread board, and a micro usb. It so happends, I have these lying around. ::stumbles through closet::
+In order to make this work, I will need an Espruino, LEDs, a bread board, and a micro usb. It so happens, I have these lying around. ::stumbles through closet::
 
-![Parts](/media/parts.jpg)
+<img src="https://github.com/EvanSays/espruino_quake/blob/master/media/parts.jpg" width="600">
+
 
 ### Setup / Internet Connection.
 
-Downloading their custom IDE from the Chrome store was painless. Connecting to the Espruino was a breeze via usb. All I had to do was plug it in and find the connection link in the top right corner of the screen. Reading through the docs, I found that I could run JS in realtime straight from the IDE console. 1+1 =2, check. I'd compare it to writing code in the dev tools in Chrome. Pretty friggin cool.
+Downloading their custom IDE from the Chrome store was painless. Connecting to the Espruino was a breeze via USB. All I had to do was plug it in and find the connection link in the top right corner of the screen. Reading through the docs, I found that I could run JS in realtime straight from the IDE console. 1+1 =2, check. I'd compare it to writing code in the dev tools in Chrome. Pretty friggin cool.
 
 ![Ide](/media/connected.png)
 
-Okay, let's get this puppy connected to the internet. Shoot! I hit my first snag here. I later learned that Espruinos Wifi chip, the ESP8266 will only work with wifi that is in the 2.4Ghz range and not 5Ghz. Why was this not in their docs, who knows? I'll create a pull request. Here's the code I used to test the wifi with.
+Okay, let's get this puppy connected to the internet. Shoot! I hit my first snag here. I later learned that Espruinos WiFi chip, the ESP8266 will only work with wifi that is in the 2.4Ghz range and not 5Ghz. Why was this not in their docs, who knows? I'll create a pull request. Here's the code I used to test the wifi with.
 
 [Why Cant ESP8266 Operate In 5Ghz?](http://www.esp8266.com/viewtopic.php?f=6&t=4032)
 
