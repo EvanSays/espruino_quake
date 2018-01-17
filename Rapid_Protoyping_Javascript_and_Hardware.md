@@ -1,4 +1,4 @@
-### Rapid Protoyping Javascript and Hardware
+### Rapid Prototyping Javascript and Hardware
 
 Written by: Evan Miller @evansays
 
@@ -17,7 +17,7 @@ I'm all for rapid prototyping. The moment I have an idea, I want to create. The 
 
 My idea this time is to create a device that lights up when an earthquake is sensed around the world. I would fetch the USGS API using the built-in WiFi module and parse through the quakes. If one is large enough, LEDs would blink and change color according to magnitude.
 
-In order to make this work, I will need an Espruino, LEDs, a bread board, and a micro usb. It so happens, I have these lying around. ::stumbles through closet::
+To make this work, I will need an Espruino, LEDs, a breadboard, and a micro USB. It so happens, I have these lying around. : stumbles through closet :
 
 <img src="https://github.com/EvanSays/espruino_quake/blob/master/media/parts.jpg" width="600">
 
@@ -29,7 +29,7 @@ Downloading their custom IDE from the Chrome store was painless. Connecting to t
 <img src="https://github.com/EvanSays/espruino_quake/blob/master/media/connected.png" width="300">
 
 
-Okay, let's get this puppy connected to the internet. Shoot! I hit my first snag here. I later learned that Espruinos WiFi chip, the ESP8266 will only work with wifi that is in the 2.4Ghz range and not 5Ghz. Why was this not in their docs, who knows? I'll create a pull request. Here's the code I used to test the wifi with.
+Okay, let's get this puppy connected to the internet. Shoot! I hit my first snag here. I later learned that Espruinos WiFi chip, the ESP8266 will only work with wifi that is in the 2.4Ghz range and not 5Ghz. Why was this not in their docs, who knows? I'll create a pull request. Here's the code I used to test the wifi.
 
 [Why Cant ESP8266 Operate In 5Ghz?](http://www.esp8266.com/viewtopic.php?f=6&t=4032)
 
@@ -59,7 +59,7 @@ function getPage() {
 
 ### Fetching USGS data.
 
-The code example above, used the [http library](http://www.espruino.com/Reference#http) to fetch the contents from a webpage. Looking at the docs, I found thats exactly what I wanted to do, grab the contents of the [USGS hourly results](https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson), then [JSON.parse](http://www.espruino.com/Reference#JSON) the results. 
+The code example above used the [http library](http://www.espruino.com/Reference#http) to fetch the contents from a webpage. Looking at the docs, I found that's exactly what I wanted to do, grab the contents of the [USGS hourly results](https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson), then [JSON.parse](http://www.espruino.com/Reference#JSON) the results. 
 
 ```
 function getData() {
@@ -77,7 +77,7 @@ function getData() {
 
 ### Parse the data.
 
-The [USGS Webite](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) provided some great docs on the output of their GeoJSON summary. After poking through, I found my interest was in the "features" array and more specifically, the magnitude. The value for mag, ranges from [-1, 10] and comes from the U.S Geological Surveys official report. It's the size of the quake at the source. [More info here](https://earthquake.usgs.gov/data/comcat/data-eventterms.php#mag) on how it is calculated.
+The [USGS Webite](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) provided some good docs on the output of their GeoJSON summary. After poking through, I found my interest was in the "features" array and more specifically, the magnitude. The value for mag ranges from [-1, 10] and comes from the U.S Geological Surveys official report. It's the size of the quake at the source. [More info here](https://earthquake.usgs.gov/data/comcat/data-eventterms.php#mag).
 
 Note: They update the GeoJSON every 5 minutes and clear it on the hour.
 
@@ -105,11 +105,11 @@ function magParse(mag) {
 
 ### Blinky Time
 
-In my former career, I was a Lighting Designer. Let's just say, I have an affinity for all things that light up. In this case, im going to use WS2812b LEDS. These are sometimes branded as "Neopixels" or "5050". Still all the same. What makes them so cool is that we can control each pixel on the strip individually or all together using a data line, ground, and 5v. 
+In my former career, I was a Lighting Designer. Let's just say; I have an affinity for all things that light up. In this case, I'm going to use WS2812b LEDs. They are branded as "Neopixels" or "5050". Still all the same. What makes them so cool is that we can control each pixel on the strip individually or all together use a data line, ground, and 5v. 
 
-Espruino gives us a badass library to help us with the data flow to the LEDS, called [Neopixel](http://www.espruino.com/Reference#neopixel).
+Espruino gives us a badass library to help us with the data flow to the LEDs, called [Neopixel](http://www.espruino.com/Reference#neopixel).
 
-I set 12 total LEDs to a global var name rgb. Note that although I have 12 LEDs, there are 12 x 3 addresses. Why tho? Thats because of RGB. Say I wanted only the red on the first led on. [255, 0, 0]. Say I wanted Red on the first and Blue on the second LED. [255, 0, 0, 0, 0, 255].
+I set 12 total LEDs to a global var name RGB. Note that although I have 12 LEDs, there are 12 x 3 addresses. Why tho? That's because of RGB. Say I wanted only the red on the first LED on. [255, 0, 0]. Say I wanted Red on the first and Blue on the second LED. [255, 0, 0, 0, 0, 255].
 
 The line 
 ```
@@ -122,7 +122,7 @@ Next, I attached the 5v led pad --> VUSB, GND --> GND and Data --> Data
 <img src="https://github.com/EvanSays/espruino_quake/blob/master/media/hookup.jpg" width="600">
 
 ```
-// For a blue sparkling effect
+// For a sparkling blue effect
 
 var rgb = new Uint8ClampedArray(9);
 
@@ -146,7 +146,7 @@ Sidenote: Neopixel was coined by a company name Adafruit. They sell and create o
 
 ### Blinky Control Timer
 
-The LEDS wont turn off now with the setInterval. What we need to do is create a timer that for 2 seconds, will run the setInterval. At the end, we also need to clear the LEDs to zero out otherwise they will stay lit. 
+The LEDs won't turn off now with the setInterval. What we need to do is create a timer that for 2 seconds, will run the setInterval. In the end, we also need to clear the LEDs to zero out. Otherwise, they will stay lit. 
 
 ```
 function timer() {
@@ -170,8 +170,8 @@ function timer() {
 
 [Link to full code](https://github.com/EvanSays/espruino_quake/blob/master/quake.js)
 
-Putting all the code pieces together lets me grab data from the api, parse through it for magnitude, and depending on the range, flashes the LEDs a certain color. All in all im quite pleased with the whole process of building from scratch. The custom IDE made it a breeze to get up and running fast, along with the ability to code there and see changes in realtime.
+Putting all the code pieces together lets me grab data from the API, parse through it for magnitude, and depending on the range, flashes the LEDs a color. All in all, I'm quite pleased with the whole process of building from scratch. The custom IDE made it a breeze to get up and running fast, along with the ability to code there and see changes in realtime.
 
-A project is not a project without some pitfalls. I did get stuck on figuring out how to JSON.parse the api. I also got stuck dealing with memory issues. Where's the leak!? I may never know...However, all in all the docs were well written and provided a great deal of information when I became stuck. 
+A project is not a project without some pitfalls. I did get stuck on figuring out how to JSON.parse the API. I also got stuck dealing with memory issues. Where's the leak!? I may never know...However, all, in all the docs were well written and provided a great deal of information when I became stuck. 
 
-As far as using JavaScript for this project, i am pumped. If I were to write this in another embedded language, it would've taken longer because I do not use those languages regularly. I'd say if you feel most comfortable coding in JS, try looking through Espruinos tutorials on their website to see if something catches your eye. Another cool product they make is a bluetooth enabled button. In about an hour, I programed mine to play/pause/skip music on my phone, so I could place it in my glove during snowboarding. That tutorial is for another time. My point is, the worlds your oyster. Go build something wicked.
+As far as using JavaScript for this project, I am pumped. If I were to write this in another embedded language, it would've taken longer because I do not use those languages regularly. I'd say if you feel most comfortable coding in JS, try looking through Espruinos tutorials on their website to see if something catches your eye. Another cool product they make is a Bluetooth enabled button. In about an hour, I programmed mine to play/pause/skip music on my phone so that I could place it in my glove during snowboarding. That tutorial is for another time. My point is the worlds your oyster. Build something wicked.
