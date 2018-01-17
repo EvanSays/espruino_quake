@@ -24,7 +24,8 @@ In order to make this work, I will need an Espruino, LEDs, a bread board, and a 
 
 Downloading their custom IDE from the Chrome store was painless. Connecting to the Espruino was a breeze via USB. All I had to do was plug it in and find the connection link in the top right corner of the screen. Reading through the docs, I found that I could run JS in realtime straight from the IDE console. 1+1 =2, check. I'd compare it to writing code in the dev tools in Chrome. Pretty friggin cool.
 
-![Ide](/media/connected.png)
+<img src="https://github.com/EvanSays/espruino_quake/blob/master/media/connected.png" width="300">
+
 
 Okay, let's get this puppy connected to the internet. Shoot! I hit my first snag here. I later learned that Espruinos WiFi chip, the ESP8266 will only work with wifi that is in the 2.4Ghz range and not 5Ghz. Why was this not in their docs, who knows? I'll create a pull request. Here's the code I used to test the wifi with.
 
