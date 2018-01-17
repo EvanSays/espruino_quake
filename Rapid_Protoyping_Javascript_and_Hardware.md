@@ -105,7 +105,7 @@ function magParse(mag) {
 
 ### Blinky Time
 
-In my former career, I was a Lighting Designer. Let's just say; I have an affinity for all things that light up. In this case, I'm going to use WS2812b LEDs. They are branded as "Neopixels" or "5050". Still all the same. What makes them so cool is that we can control each pixel on the strip individually or all together use a data line, ground, and 5v. 
+For this project, I decided to use WS2812b LEDs. They are branded as "Neopixels" or "5050". Still all the same. What makes them so cool is that we can control each pixel on the strip individually or all together use a data line, ground, and 5v. 
 
 Espruino gives us a badass library to help us with the data flow to the LEDs, called [Neopixel](http://www.espruino.com/Reference#neopixel).
 
