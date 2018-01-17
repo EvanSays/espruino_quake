@@ -163,9 +163,8 @@ function timer() {
 
 ### All Together Now
 
-![](https://imgur.com/a/t227D)
-![](blink_purp.gif)
-<img src="https://github.com/EvanSays/espruino_quake/blob/master/media/blink_purp.GIF" width="600">
+<img src="https://github.com/EvanSays/espruino_quake/blob/master/media/blink_blue.GIF" width="300">
+<img src="https://github.com/EvanSays/espruino_quake/blob/master/media/blink_purp.GIF" width="300">
 
 [Link to full code](https://github.com/EvanSays/espruino_quake/blob/master/quake.js)
 
