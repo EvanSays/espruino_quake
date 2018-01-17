@@ -7,7 +7,7 @@ You see, in the world of microcontrollers, C#, C++, and even Java dominate. Neve
 
 On Instagram, I follow @brendandawes. He lives out in the UK and from his IG, is an "artist working with digital and analogue materials." He periodically posts what he uses for his projects, including the one that got me all antsy waiting for the mail arrive. JS + embedded systems? Yes, please!
 
-![@brendandawes](/media/brendan_dawes_ig.png =50x)
+![@brendandawes](/media/brendan_dawes_ig.png | width=48)
 
 I'm all for rapid prototyping. The moment I have an idea, I want to create. The less the upfront cost of time, the closer to an idea coming to frutation. The Espruino brands itself as being easy to setup, program, and debug. Cue, easy button commercial. Let's see how this goes.
 
