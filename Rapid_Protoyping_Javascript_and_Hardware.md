@@ -17,13 +17,13 @@ My idea this time is to create a device that lights up when an earthquake is sen
 
 In order to make this work, I will need an Espruino, leds, a bread board, and a micro usb. It so happends, I have these lying around. ::stumbles through closet::
 
-![Parts](https://www.dropbox.com/s/rj75aq0wbo5h2va/parts.jpg?dl=1)
+![Parts](/media/parts.jpg)
 
 ### Setup / Internet Connection.
 
 Downloading their custom IDE from the Chrome store was painless. Connecting to the Espruino was a breeze via usb. All I had to do was plug it in and find the connection link in the top right corner of the screen. Reading through the docs, I found that I could run JS in realtime straight from the IDE console. 1+1 =2, check. I'd compare it to writing code in the dev tools in Chrome. Pretty friggin cool.
 
-![Ide](https://www.dropbox.com/s/gyiecs0r0m439ou/connected.png?dl=1)
+![Ide](/media/connected.png)
 
 Okay, let's get this puppy connected to the internet. Shoot! I hit my first snag here. I later learned that Espruinos Wifi chip, the ESP8266 will only work with wifi that is in the 2.4Ghz range and not 5Ghz. Why was this not in their docs, who knows? I'll create a pull request. Here's the code I used to test the wifi with.
 
@@ -115,7 +115,7 @@ writes the number of total leds (rgb) to the B15 pin. See pinout [here](http://w
 
 Next, I attached the 5v led pad --> VUSB, GND --> GND and Data --> Data
 
-![Pinout](https://www.dropbox.com/s/j6fv9994gvc8130/hookup.jpg?dl=1)
+![Pinout](/media/hookup.jpg)
 
 ```
 // For a blue sparkling effect
@@ -161,7 +161,9 @@ function timer() {
 
 ### All Together Now
 
-[Link to full code]()
+![](blink_blue.GIF)
+![](blink_purple.GIF)
+[Link to full code](https://github.com/EvanSays/espruino_quake/blob/master/quake.js)
 
 Putting all the code pieces together lets me grab data from the api, parse through it for magnitude, and depending on the range, flashes the LEDs a certain color. All in all im quite pleased with the whole process of building from scratch. The custom IDE made it a breeze to get up and running fast, along with the ability to code there and see changes in realtime.
 
