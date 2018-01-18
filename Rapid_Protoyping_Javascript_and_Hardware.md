@@ -120,7 +120,7 @@ writes the number of total leds (rgb) to the B15 pin. See pinout [here](http://w
 
 Next, I attached the 5v led pad --> VUSB, GND --> GND and Data --> Data
 
-<img src="https://github.com/EvanSays/espruino_quake/blob/master/media/hookup.jpg" width="600">
+<img src="https://github.com/EvanSays/espruino_quake/blob/master/media/hookup.png" width="600">
 
 ```javascript
 // For a sparkling blue effect
