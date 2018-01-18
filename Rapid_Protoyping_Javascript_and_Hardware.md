@@ -176,3 +176,5 @@ Putting all the code pieces together lets me grab data from the API, parse throu
 A project is not a project without some pitfalls. I did get stuck on figuring out how to JSON.parse the API. I also got stuck dealing with memory issues. Where's the leak!? I may never know... However, all in all the docs were well written and provided a great deal of information when I became stuck. 
 
 As far as using JavaScript for this project, I am pumped. If I were to write this in another embedded language, it would've taken longer because I do not use those languages regularly. I'd say if you feel most comfortable coding in JS, try looking through Espruinos tutorials on their website to see if something catches your eye. Another cool product they make is a Bluetooth enabled button. In about an hour, I programmed mine to play/pause/skip music on my phone so that I could place it in my glove during snowboarding. That tutorial is for another time. My point is build something wicked.
+
+Come find me on ig @_evansays
