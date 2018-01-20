@@ -1,31 +1,36 @@
 var WIFI_NAME = "";
 var WIFI_OPTIONS = { password: "" };
 
-var rgb = new Uint8ClampedArray(12 * 3);
+var rgb = new Uint8ClampedArray(9 * 3);
 var pos = 0;
 
-var wifi = require("EspruinoWiFi");
-wifi.connect(WIFI_NAME, WIFI_OPTIONS, function (err) {
+var wifi;
+
+// to use onInit, in the ide, go to settings --> Communications --> Save On Send = (yes)
+function onInit() {
+  wifi = require("EspruinoWiFi");
+  wifi.connect(WIFI_NAME, WIFI_OPTIONS, function(err) {
     if (err) {
-        console.log("Connection error: " + err);
-        return;
+      console.log("Connection error: "+err);
+      return;
     }
     console.log("Connected!");
     startInterval();
-});
+  });
+}
 
 function startInterval() {
     getData();
 
     setInterval(function () {
         getData();
-    }, 10000);
+    }, 300000);
 }
 
 function getData() {
     var usage = process.memory().usage;
     // Uncomment to check memory usage for debugging
-    //console.log('USAGE- ' + usage);
+    console.log('USAGE- ' + usage);
     require("http").get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson", function (res) {
         var data = "";
         //console.log("Response: ",res);
@@ -73,7 +78,7 @@ function doLights(one, two, three, four, five, six, red, grn, blue) {
 }
 
 function getPattern(one, two, three, four, five, six, red, grn, blue) {
-    for (var i = 0; i < rgb.length; i += 3) {
+    for (var i = 0; i <= rgb.length; i += 3) {
         rgb[one + i] = Math.random() * red;
         rgb[two + i] = Math.random() * grn;
         rgb[three + i] = Math.random() * blue;
