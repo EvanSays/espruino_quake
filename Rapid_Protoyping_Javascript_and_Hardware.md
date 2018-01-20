@@ -94,11 +94,11 @@ function magParse(mag) {
   } else if (mag > 2 && mag <= 4) {
     //console.log("TWO " + mag);
   } else if (mag > 4 && mag <= 6) {
-    console.log("THREE " + mag);
+    //console.log("THREE " + mag);
   } else if (mag > 6 && mag <= 8) {
-    console.log(mag);
+    //console.log("FOUR " + mag);
   } else if (mag > 8 && mag <= 10) {
-    console.log(mag);
+    //console.log("FIVE " + mag);
   }
 }
 ```
