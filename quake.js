@@ -1,8 +1,11 @@
+// Set your wifi name and password
+// Note: WiFi chip only works on 2.4Ghz. If you have problems connecting to wifi, you might be on 5Ghz
 var WIFI_NAME = "";
 var WIFI_OPTIONS = { password: "" };
 
 var rgb = new Uint8ClampedArray(9 * 3);
 var pos = 0;
+var lastTime = 0;
 
 var wifi;
 
@@ -30,7 +33,7 @@ function startInterval() {
 function getData() {
     var usage = process.memory().usage;
     // Uncomment to check memory usage for debugging
-    console.log('USAGE- ' + usage);
+    // console.log('USAGE- ' + usage);
     require("http").get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson", function (res) {
         var data = "";
         //console.log("Response: ",res);
@@ -44,7 +47,20 @@ function getData() {
 
 
 function parseFeatures(features) {
-    magParse(features[0].properties.mag);
+  var lastIndex = features.length -1;
+  
+  if (lastTime === 0) {
+    magParse(features[lastIndex].properties.mag);
+    lastTime = features[lastIndex].properties.time;
+  } else {
+    for(var i = lastIndex; i >= 0; i--){
+      if(features[i].properties.time > lastTime){
+        magParse(features[i].properties.mag);
+        lastTime = features[i].properties.time;
+        break;
+      }
+    }
+  }
 }
 
 function magParse(mag) {
