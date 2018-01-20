@@ -123,9 +123,9 @@ Next, I attached the 5v led pad --> VUSB, GND --> GND and Data --> Data
 <img src="https://github.com/EvanSays/espruino_quake/blob/master/media/hookup.png" width="600">
 
 ```javascript
-// For a sparkling blue effect
-
-var rgb = new Uint8ClampedArray(9);
+// For a sparkling blue effect (9 leds)
+// 9 leds * 3(rgb)
+var rgb = new Uint8ClampedArray(9 * 3);
 
 function doLights() {
   getPattern();
